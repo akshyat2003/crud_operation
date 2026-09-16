@@ -3,11 +3,11 @@ require('dotenv').config()
 const cors = require('cors')
 const express = require('express')
 const mongoose = require('mongoose')
+const connectDB = require('./config/db')
 const User = require('./model/User')
 
 const app = express()
 const port = Number(process.env.PORT) || 5000
-const mongoUri = process.env.MONGODB_URI
 
 app.use(cors())
 app.use(express.json())
@@ -104,11 +104,7 @@ app.use((error, req, res, next) => {
 })
 
 async function startServer() {
-    if (!mongoUri) {
-        throw new Error('MONGODB_URI is not set. Add it to backend/.env before starting the server.')
-    }
-
-    await mongoose.connect(mongoUri)
+    await connectDB()
     app.listen(port, () => {
         console.log(`API listening on http://localhost:${port}`)
     })
