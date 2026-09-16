@@ -1,16 +1,48 @@
-# React + Vite
+# User Directory Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+React and Vite frontend for the MongoDB user CRUD API in `../backend`.
 
-Currently, two official plugins are available:
+## Run locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Start the backend first so the frontend can load users:
 
-## React Compiler
+```powershell
+cd backend
+Copy-Item .env.example .env
+npm install
+npm run dev
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Open a second terminal for the frontend:
 
-## Expanding the Oxlint configuration
+```powershell
+cd frontend
+npm install
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Open the URL printed by Vite, usually `http://localhost:5173`.
+
+The frontend uses `http://localhost:5000/api` by default. To use another API URL, create `frontend/.env`:
+
+```env
+VITE_API_URL=http://localhost:5000/api
+```
+
+## Features
+
+The interface has four views:
+
+- **All users**: list every user and refresh the list.
+- **Add user**: create a user with a name and email.
+- **Update**: select and edit an existing user.
+- **Delete**: select and permanently remove an existing user.
+
+## Checks
+
+```powershell
+npm run lint
+npm run build
+```
+
+The backend must have a valid MongoDB connection in `backend/.env` before CRUD operations can work. See the backend README for the API endpoint details.
