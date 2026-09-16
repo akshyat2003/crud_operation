@@ -1,184 +1,229 @@
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
-
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
-}
-
-.hero {
-  position: relative;
-
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
+.app-shell {
+    width: min(100% - 40px, 920px);
     margin: 0 auto;
-  }
-
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
-
-  .framework,
-  .vite {
-    position: absolute;
-  }
-
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
-
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
 }
 
-#center {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
-}
-
-#next-steps {
-  display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
-
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
-
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-#docs {
-  border-right: 1px solid var(--border);
-
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
-}
-
-#next-steps ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
-
-  .logo {
-    height: 18px;
-  }
-
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
+.header {
     display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
+    align-items: end;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 52px 0 28px;
+    border-bottom: 1px solid #d9d9d2;
+}
 
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
+.eyebrow {
+    margin: 0 0 8px;
+    color: #77776f;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
 
-  @media (max-width: 1024px) {
-    margin-top: 20px;
+h1,
+h2,
+p {
+    margin-top: 0;
+}
+
+h1,
+h2 {
+    color: #20231e;
+    letter-spacing: -0.03em;
+}
+
+h1 {
+    margin-bottom: 0;
+    font-size: clamp(34px, 5vw, 54px);
+    line-height: 1;
+}
+
+h2 {
+    margin-bottom: 0;
+    font-size: 30px;
+}
+
+nav {
+    display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
+    justify-content: end;
+    gap: 6px;
 }
 
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
+button,
+input,
+select {
+    font: inherit;
 }
 
-.ticks {
-  position: relative;
-  width: 100%;
+button {
+    cursor: pointer;
+}
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
-  }
+.nav-button,
+.button {
+    border: 1px solid #c9cac2;
+    border-radius: 5px;
+    background: transparent;
+    color: #30332d;
+    padding: 9px 13px;
+}
 
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
-  }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
-  }
+.nav-button:hover,
+.nav-button.active,
+.button:hover {
+    border-color: #20231e;
+    background: #f0f0e9;
+}
+
+main {
+    padding: 42px 0 80px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.user-list {
+    border-top: 1px solid #d9d9d2;
+}
+
+.user-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 17px 0;
+    border-bottom: 1px solid #d9d9d2;
+}
+
+.avatar {
+    display: grid;
+    flex: 0 0 42px;
+    height: 42px;
+    place-items: center;
+    border-radius: 50%;
+    background: #dce8d4;
+    color: #36522e;
+    font-weight: 700;
+}
+
+.user-row strong {
+    color: #20231e;
+}
+
+.user-row p,
+.muted,
+.empty {
+    margin: 3px 0 0;
+    color: #77776f;
+}
+
+.form-panel,
+.delete-panel {
+    max-width: 520px;
+    padding: 26px;
+    border: 1px solid #d9d9d2;
+    border-radius: 6px;
+    background: #fbfbf7;
+}
+
+.form-panel h2 {
+    margin-bottom: 24px;
+}
+
+form {
+    display: grid;
+    gap: 17px;
+}
+
+label {
+    display: grid;
+    gap: 7px;
+    color: #4c4f46;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+input,
+.user-select {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #c9cac2;
+    border-radius: 4px;
+    padding: 11px 12px;
+    background: #fff;
+    color: #20231e;
+}
+
+.user-select {
+    max-width: 520px;
+    margin-bottom: 20px;
+}
+
+input:focus,
+select:focus,
+button:focus-visible {
+    outline: 2px solid #8aa77f;
+    outline-offset: 2px;
+}
+
+.primary {
+    width: fit-content;
+    border-color: #36522e;
+    background: #36522e;
+    color: #fff;
+}
+
+.primary:hover {
+    border-color: #263d21;
+    background: #263d21;
+}
+
+.danger {
+    border-color: #a54136;
+    color: #a54136;
+}
+
+.danger:hover {
+    background: #f8e9e6;
+}
+
+.delete-panel p {
+    color: #4c4f46;
+}
+
+.error {
+    color: #a54136;
+}
+
+.banner {
+    margin-bottom: 22px;
+    padding: 12px 14px;
+    border: 1px solid #e0b5ae;
+    border-radius: 4px;
+    background: #fdf1ef;
+}
+
+@media (max-width: 680px) {
+    .app-shell {
+        width: min(100% - 28px, 920px);
+    }
+
+    .header {
+        align-items: start;
+        flex-direction: column;
+        padding-top: 30px;
+    }
+
+    nav {
+        justify-content: start;
+    }
+
+    main {
+        padding-top: 30px;
+    }
 }
